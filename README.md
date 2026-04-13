@@ -9,6 +9,61 @@
 - 🧠 **深度降AI味**：通过"思维过程模拟"等技术，让文本呈现人类学者风格
 - 📊 **统计工具集成**：自动生成符合学术规范的统计结果表格
 - ✅ **智能质量检查**：多维度检查论文的逻辑、格式、引用质量
+- 🔌 **多编辑器兼容**：完美支持 Cline、CodeBuddy、Claude Desktop 等 6+ 主流 AI 编辑器
+
+---
+
+## ⚡ 快速上手（3 步即可使用）
+
+> ✨ 已完美适配主流 AI 编辑器！无论你使用 Cline、CodeBuddy 还是 Claude Desktop，都能即装即用。
+
+### 📦 安装方法
+
+#### 方法一：Cline 用户（推荐）
+
+```bash
+# 1️⃣ 克隆或下载本仓库
+git clone https://github.com/yanlin-cheng/skill-thesis-writer.git
+
+# 2️⃣ 复制到你的论文项目目录
+mkdir -p .cline/skills
+cp -r skill-thesis-writer .cline/skills/skill-thesis-writer
+
+# 3️⃣ 重启 Cline，在 Skills 列表中查看是否出现 "skill-thesis-writer"
+```
+
+#### 方法二：其他 AI 编辑器用户
+
+| 编辑器 | 安装路径 | 详细说明 |
+|-------|---------|---------|
+| **Cline** (VS Code) | `.cline/skills/` | 👉 [查看完整指南](.cline/CLINE_INSTALL.md) |
+| **CodeBuddy** | `~/.codebuddy/skills/` | UI 导入或手动复制文件夹 |
+| **Claude Desktop/Code** | `.claude/skills/` | 复制后重启 Claude |
+| **Cursor / Windsurf** | `.cursor/skills/` 或 `.windsurf/skills/` | 同样支持标准格式 |
+
+> 💡 **通用步骤：** 将 `skill-thesis-writer` 文件夹复制到对应编辑器的 `skills` 目录下，重启编辑器即可识别。
+
+---
+
+### 🆘 遇到问题？AI 帮你搞定！
+
+如果按照上述步骤仍然无法导入，别担心！试试这个方法：
+
+1. **将整个 `skill-thesis-writer` 文件夹放到你的项目工作目录中**
+2. **打开你的 AI 助手（Cline/CodeBuddy/Claude），输入以下指令：**
+
+```
+我有一个论文写作技能文件夹叫 "skill-thesis-writer"，请你：
+1. 读取它的 SKILL.md 文件
+2. 检查并修复格式问题（如果有的话）
+3. 帮我配置为当前可用的 Skill
+```
+
+3. **AI 会自动完成所有配置和修复工作！**
+
+> 🤖 这就是 AI 技能的魔力——即使遇到问题，也能用 AI 来解决 AI 的配置问题！
+
+---
 
 ## 适用学科
 
