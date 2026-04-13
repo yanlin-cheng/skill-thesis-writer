@@ -74,34 +74,63 @@ cp -r skill-thesis-writer .cline/skills/skill-thesis-writer
 | **教育学** | 准实验设计、行动研究、问卷设计 | 教育伦理、霍桑效应提示、三角验证 |
 | **管理学** | 理论模型、假设验证链、共同方法偏差检验 | CMB检验、SEM分析、简单斜率图 |
 
-## 快速开始
+## 📂 项目结构（2025-04-13 更新）
 
-### 1. 目录结构
+> **重要变更**：v1.1 版本已将所有 Python 脚本转换为 **MD 指南文档**，由 AI 智能执行而非机械运行，效果更可靠、更安全。
 
 ```
 skill-thesis-writer/
-├── SKILL.md                    # 核心技能指令（必读）
-├── README.md                   # 本文件
-├── .cline/                     # Cline 安装指南
-│   └── CLINE_INSTALL.md        # Cline 详细安装说明
-├── scripts/                    # 实用脚本工具
-│   ├── ai_humanizer.py         # AI痕迹消除（核心）
-│   ├── format_references.py    # 参考文献格式化
-│   ├── generate_stat_table.py  # 统计表格生成
-│   └── quality_checker.py      # 论文质量检查
-├── references/                 # 学科写作指南
-│   ├── writing_standards.md    # 通用写作规范
-│   ├── ai_humanization_tech.md # 降AI味技术详解
-│   ├── engineering_guide.md    # 工科写作指南
-│   ├── psychology_guide.md     # 心理学写作指南
-│   ├── education_guide.md      # 教育学写作指南
-│   ├── management_guide.md     # 管理学写作指南
-│   └── gbt7714_spec.md         # GB/T 7714格式详解
-└── assets/                     # 模板资源
-    └── templates/              # 论文模板
-        ├── engineering_thesis.md   # 工科论文模板
-        └── social_science_thesis.md # 社科论文模板
+├── SKILL.md                          # 核心技能指令（必读）
+├── README.md                         # 本文件
+├── .cline/                           # Cline 安装指南
+│   └── CLINE_INSTALL.md              # Cline 详细安装说明
+│
+├── references/guides/                # ✨ 核心：AI 指南文档（2025 新增）
+│   ├── ai_humanizer_guide.md         # 🔧 AI痕迹消除指南
+│   ├── references_formatting_guide.md # 📚 参考文献格式化指南
+│   ├── stat_tables_guide.md          # 📊 统计表格生成指南
+│   └── quality_checklist_guide.md    # ✅ 论文质量检查清单
+│
+├── references/                       # 学科写作指南
+│   ├── writing_standards.md          # 通用写作规范
+│   ├── engineering_guide.md          # 工科写作指南
+│   ├── psychology_guide.md           # 心理学写作指南
+│   ├── education_guide.md            # 教育学写作指南
+│   ├── management_guide.md           # 管理学写作指南
+│   └── gbt7714_spec.md               # GB/T 7714格式详解
+│
+├── scripts/                          # ⚠️ 已弃用（保留供参考，建议使用 guides/ 中的文档）
+│   ├── ai_humanizer.py               # （已弃用）→ 请用 ai_humanizer_guide.md
+│   ├── format_references.py          # （已弃用）→ 请用 references_formatting_guide.md
+│   ├── generate_stat_table.py        # （已弃用）→ 请用 stat_tables_guide.md
+│   └── quality_checker.py            # （已弃用）→ 请用 quality_checklist_guide.md
+│
+└── assets/                           # 模板资源
+    └── templates/                    # 论文模板
+        ├── engineering_thesis.md     # 工科论文模板
+        └── social_science_thesis.md  # 社科论文模板
 ```
+
+### 🆕 v1.1 更新：从脚本到智能文档
+
+| 变更前 (v1.0) | 变更后 (v1.1) | 为什么更好？ |
+|---------------|--------------|-------------|
+| Python 脚本机械替换文字 | AI 理解上下文后灵活调整 | 避免语病和机械感 |
+| 正则表达式解析参考文献 | AI 逐条检查+智能修正 | 更准确、更安全 |
+| 固定模板生成表格 | AI 根据数据定制格式 | 符合具体期刊要求 |
+| 自动评分系统 | 分维度详细报告 + 建议 | 建设性反馈 |
+
+**如何使用新的指南文档？**
+
+直接告诉你的 AI 助手：
+```
+请按照 references/guides/ 中的指南帮助我：
+- 降低这段文字的 AI 痕迹 → 用 ai_humanizer_guide.md
+- 格式化我的参考文献列表 → 用 references_formatting_guide.md
+- 生成统计结果表格 → 用 stat_tables_guide.md
+- 全面检查我的论文质量 → 用 quality_checklist_guide.md
+```
+AI 会自动读取对应指南并按步骤执行！
 
 ### 2. 在主流 AI 编辑器中使用
 
