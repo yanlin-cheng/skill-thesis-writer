@@ -1,6 +1,6 @@
 # 跨学科AI论文写作助手 SKILL
 
-> 一个专为本科/研究生论文写作设计的AI技能，支持工科、心理学、教育学、管理学等多学科领域，提供符合中国学术规范（GB/T 7714-2015）的论文写作、数据分析、参考文献管理一体化解决方案。
+> **跨学科AI论文写作助手，专为本科生/研究生论文写作提供全方位支持**。支持工科、心理学、教育学、管理学等多学科领域，提供符合中国学术规范（GB/T 7714-2015）的论文写作、数据分析、参考文献管理一体化解决方案。当用户需要撰写论文内容、设计论文框架、优化论文章节、处理参考文献格式、进行统计分析、或降低AI生成文本痕迹时使用此技能。
 
 ## 核心特性
 
@@ -27,6 +27,8 @@
 skill-thesis-writer/
 ├── SKILL.md                    # 核心技能指令（必读）
 ├── README.md                   # 本文件
+├── .cline/                     # Cline 安装指南
+│   └── CLINE_INSTALL.md        # Cline 详细安装说明
 ├── scripts/                    # 实用脚本工具
 │   ├── ai_humanizer.py         # AI痕迹消除（核心）
 │   ├── format_references.py    # 参考文献格式化
@@ -46,18 +48,158 @@ skill-thesis-writer/
         └── social_science_thesis.md # 社科论文模板
 ```
 
-### 2. 使用方式
+### 2. 在主流 AI 编辑器中使用
 
-#### 方式一：作为AI助手技能使用
+本 SKILL 已按照标准格式设计，支持以下 AI 编辑器：
 
-1. 将本SKILL加载到AI助手
-2. 输入论文主题，AI将自动：
-   - 识别学科领域
-   - 进行分步引导式提问
-   - 生成符合规范的论文框架
-   - 应用"降AI味"技术优化文本
+---
 
-#### 方式二：使用脚本工具
+#### 🎯 Cline（VS Code 扩展）
+
+**Cline 是目前最流行的 VS Code AI 助手之一，完美支持 Skills 系统。**
+
+##### 安装方法
+
+**方法 A：项目级安装（推荐用于团队项目）**
+
+```bash
+# 在你的项目根目录执行
+mkdir -p .cline/skills
+cp -r skill-thesis-writer .cline/skills/skill-thesis-writer
+```
+
+**目录结构应为：**
+```
+your-project/
+├── .cline/
+│   └── skills/
+│       └── skill-thesis-writer/    ← 技能文件夹
+│           ├── SKILL.md            ← 必需的主文件
+│           ├── references/
+│           ├── scripts/
+│           └── assets/
+└── ...其他项目文件
+```
+
+**方法 B：全局安装（所有项目可用）**
+
+**Windows (PowerShell):**
+```powershell
+mkdir $env:USERPROFILE\.cline\skills -Force
+Copy-Item -Recurse skill-thesis-writer $env:USERPROFILE\.cline\skills\
+```
+
+**macOS/Linux:**
+```bash
+mkdir -p ~/.cline/skills
+cp -r skill-thesis-writer ~/.cline/skills/
+```
+
+##### 验证安装
+
+1. 打开 VS Code
+2. 启动 Cline 扩展（侧边栏或快捷键）
+3. 点击 **⚙️ 设置图标 → Skills**
+4. 查看是否显示 "skill-thesis-writer" 技能卡片
+5. ✅ 确认技能开关已启用（蓝色状态）
+
+##### 使用方式
+
+安装成功后，当你在 Cline 对话框中输入以下类型的问题时，技能会**自动激活**：
+
+| 触发场景 | 示例问题 |
+|---------|---------|
+| 📝 **论文撰写** | "帮我写一篇关于深度学习的论文开题报告" |
+| 🔧 **框架设计** | "设计一下心理学实验的论文框架" |
+| ✍️ **文本优化** | "优化这段学术文字，降低AI痕迹" |
+| 📚 **参考文献** | "把这些文献按 GB/T 7714 格式化" |
+| 📊 **统计分析** | "生成一个回归分析结果表格" |
+| 🔍 **质量检查** | "检查这篇论文有没有逻辑问题" |
+
+**详细说明请查看 [`.cline/CLINE_INSTALL.md`](.cline/CLINE_INSTALL.md)**
+
+---
+
+#### 💻 CodeBuddy（IDE 插件）
+
+CodeBuddy 原生支持 SKILL 格式。
+
+##### 安装方法
+
+**全局安装（推荐）：**
+```bash
+# 将整个项目复制到 CodeBuddy 的 skills 目录
+# 路径通常为 ~/.codebuddy/skills/ 或通过 CodeBuddy 设置界面导入
+cp -r skill-thesis-writer ~/.codebuddy/skills/
+```
+
+**或通过 CodeBuddy UI 导入：**
+1. 打开 CodeBuddy 设置面板
+2. 选择 "Skills" 或 "自定义技能"
+3. 点击 "添加技能"
+4. 选择 `skill-thesis-writer` 文件夹
+5. 确认导入
+
+##### 使用方式
+
+- 技能会自动根据 description 字段触发
+- 也可以在对话中手动提及："使用 thesis-writer 技能"
+
+---
+
+#### 🤖 Claude Desktop / Claude Code
+
+Claude 支持标准 SKILL.md 格式。
+
+##### 安装方法
+
+**项目级安装：**
+```bash
+mkdir -p .claude/skills
+ln -s ../skill-thesis-writer .claude/skills/skill-thesis-writer
+# Windows: mklink /D .claude\skills\skill-thesis-writer skill-thesis-writer
+```
+
+**或全局安装（macOS/Linux）：**
+```bash
+mkdir -p ~/.claude/skills
+cp -r skill-thesis-writer ~/.claude/skills/
+```
+
+##### 配置 Claude Desktop
+
+在 `~/.claude/config.json` 或项目的 `.claude/settings.json` 中添加：
+
+```json
+{
+  "skills": [
+    ".claude/skills/skill-thesis-writer"
+  ]
+}
+```
+
+---
+
+#### 📋 其他兼容编辑器
+
+以下编辑器也支持标准 SKILL 格式：
+
+| 编辑器 | 安装路径 | 说明 |
+|-------|---------|------|
+| **Cursor** | `.cursor/skills/` | 与 Cline 类似的结构 |
+| **Windsurf** | `.windsurf/skills/` | 支持 YAML frontmatter |
+| **Continue** | `.continue/skills/` | 开源 AI 编程助手 |
+| **Aider** | `.aider/skills/` | 终端 AI 助手 |
+
+通用安装命令：
+```bash
+mkdir -p .<editor-name>/skills
+cp -r skill-thesis-writer .<editor-name>/skills/skill-thesis-writer
+```
+
+---
+
+### 3. 作为独立脚本使用
 
 **AI痕迹检测与消除**：
 ```bash
