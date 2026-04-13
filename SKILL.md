@@ -266,14 +266,12 @@ bib = {
 - `references/management_guide.md` - 管理学写作详细指南
 - `references/gbt7714_spec.md` - GB/T 7714-2015格式详解
 - `references/ai_humanization_tech.md` - 降AI味技术指南
+- `references/guides/` - AI 指南文档（推荐使用）
+  - `ai_humanizer_guide.md` - AI痕迹消除指南
+  - `references_formatting_guide.md` - 参考文献格式化指南
+  - `stat_tables_guide.md` - 统计表格生成指南
+  - `quality_checklist_guide.md` - 论文质量检查清单
 - `assets/templates/` - 各学科论文模板
-
-## 工具脚本
-
-- `scripts/format_references.py` - 参考文献格式化
-- `scripts/generate_stat_table.py` - 统计表格生成
-- `scripts/ai_humanizer.py` - AI痕迹消除
-- `scripts/quality_checker.py` - 质量检查
 
 ---
 
@@ -359,5 +357,5 @@ bib = {
 - 定期更新学科词库与同义词表
 - 收集用户反馈优化"降AI味"算法
 
-**当前版本：v1.0**
-**最后更新：2025年2月**
+**当前版本：v1.1**
+**最后更新：2026年4月13日**

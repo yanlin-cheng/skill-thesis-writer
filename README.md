@@ -283,38 +283,18 @@ cp -r skill-thesis-writer .<editor-name>/skills/skill-thesis-writer
 
 ---
 
-### 3. 作为独立脚本使用
+### 3. 使用指南文档
 
-**AI痕迹检测与消除**：
-```bash
-python scripts/ai_humanizer.py "待检测文本" --discipline 心理学 --aggressive
-```
+> ⚠️ **注意**：原 Python 脚本已弃用，请改用 MD 指南文档。让 AI 助手读取对应指南并智能执行即可。
 
-**参考文献格式化**：
-```bash
-python scripts/format_references.py --input refs.txt --discipline 社科 --check-duplicates --analyze-timeliness
-```
+| 任务 | 使用文档 | 示例指令 |
+|------|---------|---------|
+| 降低AI痕迹 | `guides/ai_humanizer_guide.md` | "请按 ai_humanizer_guide.md 帮我优化这段文字" |
+| 格式化参考文献 | `guides/references_formatting_guide.md` | "请按 GB/T 7714 规范格式化我的参考文献列表" |
+| 生成统计表格 | `guides/stat_tables_guide.md` | "帮我生成一个描述性统计表（M±SD格式）" |
+| 全面质量检查 | `guides/quality_checklist_guide.md` | "请按清单逐项检查我的论文质量" |
 
-**统计表格生成**：
-```python
-from scripts.generate_stat_table import StatTableGenerator, TableConfig
-
-config = TableConfig(title="描述性统计结果", decimal_places=2)
-generator = StatTableGenerator(config)
-
-# 生成描述性统计表
-table = generator.descriptive_stats(data, variables=['X1', 'X2', 'Y'])
-print(table)
-```
-
-**论文质量检查**：
-```python
-from scripts.quality_checker import QualityChecker
-
-checker = QualityChecker(discipline="管理学")
-report = checker.check_all(text=paper_text, title=title, abstract=abstract)
-print(checker.generate_report(report))
-```
+只需将上述示例指令发给你的 AI 助手，它会自动读取对应指南并按步骤执行！
 
 ## 核心功能详解
 
@@ -535,6 +515,13 @@ optimized = humanizer.humanize(text, aggressive=True)  # 降AI味处理
 
 ## 更新日志
 
+### v1.1 (2026-04-13) — 重构：从脚本到智能文档
+- ✅ 将所有 Python 脚本转换为 **MD 指南文档**（`references/guides/`）
+- 📝 新增 4 份完整指南：AI 痕迹消除 / 参考文献格式化 / 统计表格 / 质量检查
+- 🔧 标记 `scripts/` 为已弃用，由 AI 智能执行替代机械运行
+- 🐛 修复 Cline 兼容性问题，优化 YAML frontmatter
+- 📖 完善多编辑器安装说明（Cline/CodeBuddy/Claude/Cursor/Windsurf）
+
 ### v1.0 (2025-02-04)
 - 初始版本发布
 - 支持工科、心理学、教育学、管理学四个学科
@@ -557,5 +544,5 @@ optimized = humanizer.humanize(text, aggressive=True)  # 降AI味处理
 ---
 
 **作者**：AI论文写作助手团队
-**版本**：v1.0
-**更新日期**：2025年2月4日
+**版本**：v1.1
+**更新日期**：2026年4月13日
